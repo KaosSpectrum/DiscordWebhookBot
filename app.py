@@ -25,6 +25,9 @@ def get_changes():
   if not p4_changes[0]:
    return ''
 
+  if not 'submitted' in p4_changes[0].get("status"):
+   return ''
+
   ts = int(p4_changes[0].get("time"))
   time = datetime.utcfromtimestamp(ts).strftime('%d/%m/%Y %H:%M:%S')
   change = p4_changes[0].get("change")
