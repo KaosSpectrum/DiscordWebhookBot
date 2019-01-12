@@ -49,10 +49,10 @@ def get_changes():
 def post():
   discord_text = get_changes()
 
-  if payload != '':
+  if discord_text != '':
     message = DiscordWebhooks(WebhookURL)
-    message.set_content(color=0xc8702a, description='`%s`' % (payload))
-    message.set_author(name='Perforce')
+    message.set_content(color=0xc8702a, description='`%s`' % (discord_text))
+    message.set_author(name='Perforce Changelist Submit')
     message.set_footer(text='KaosSpectrum Perforce Commit Bot', ts=True)
     message.send()
 
